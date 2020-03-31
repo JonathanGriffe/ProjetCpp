@@ -1,0 +1,30 @@
+{
+title tacheUn
+description un 
+status closed
+creation Tue Mar 31 22:43:36 2020
+
+cloture Tue Mar 31 22:44:19 2020
+
+priorite normal
+}
+{
+child
+title ssTacheUn
+description ssUn
+status closed
+creation Tue Mar 31 22:43:48 2020
+
+cloture Tue Mar 31 22:44:19 2020
+
+priorite low
+}
+{
+title tacheDeux
+description deux
+status open
+creation Tue Mar 31 22:43:44 2020
+
+priorite high
+comment mon commentaire
+}

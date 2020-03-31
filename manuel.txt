@@ -1,0 +1,57 @@
+Le programme fonctionne par lignes de commandes. Dès qu'on l'a lancé, il est possible de taper des commandes 
+puis d'appuyer sur Entrée pour les effectuer.
+
+La syntaxe des commandes est la suivante:
+<mot-clé> --<option 1> <argument de l'option 1> --<option n> <argument de l'option n>
+
+exemple: 
+newtask --title aller faire des courses --description acheter des pommes
+
+Les commandes sont :
+
+1) Créer un tâche : newtask
+
+options:
+
+title : le titre de la tâche
+
+description : la description de la tâche
+
+priority : la priorité de la tâche (high/normal/low, normal par défaut)
+
+mother : si la tâche est une sous-tâche, mettre cette option avec l'id de la tâche mère (on récupère l'id avec la commande tasks)
+
+2) Afficher les tâches principales : tasks
+Renvoie les ID des tâches suivies des noms des tâches et de leurs status
+exemple:
+
+tasks
+0 : Faire des courses : in progress
+1 : Faire son projet d'info : closed
+
+3) Afficher les sous-tâches d'une tâche principale : subtasks --id <id de la tâche principale>
+Renvoie les sous-tâches sous la même forme que pour la commande tasks
+
+4) Afficher les informations d'une tâche : info
+options:
+
+id : l'ID de la tâche ou alors de l'ID de sous-tâche
+
+motherID : si la tâche cible est une sous-tâche, l'id de la tâche mère (id sera alors l'id de sous-tâche obtenue avec la commande subtasks)
+
+5) Clore une tâche : close
+mêmes options que la commande info
+
+6) Ajouter un commentaire à une tache : comment
+options:
+
+id : même utilisation que dans la commande info
+
+motherID : même utilisation que dans la commande info
+
+comment : le commentaire
+
+7) Sauvegarder et quitter le programme : quit
+
+
+ 

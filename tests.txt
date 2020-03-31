@@ -1,0 +1,84 @@
+On commence par lancer le programme :
+
+(base) C:\Users\Jonathan\Workspace\ProjetCpp>projcpp.exe
+erreur d'ouverture du fichier de sauvegarde
+
+Cette réponse est normale car on n'a pas créé le fichier de sauvegarde, cela n'est pas problématique car le programme s'exécute quand même,
+il n'y a juste pas de tâche enregistrée.
+
+On va tester les fonctions de création de tâches. On créé deux tâches et une sous-tâches avec des paramètres divers :
+
+>newtask --title tacheUn --description un
+Successfully created new task with title : tacheUn
+>newtask --title tacheDeux --description deux --priority high
+Successfully created new task with title : tacheDeux
+>newtask --title ssTacheUn --description ssUn --priority low --mother 0
+Successfully created new task with title : ssTacheUn
+>tasks
+Tasks :
+0 : tacheUn  :  open
+1 : tacheDeux  :  open
+>subtasks --id 0
+SubTasks :
+0 : ssTacheUn  :  open
+>subtasks --id 1
+SubTasks :
+
+la commande tasks montre bien les deux tâches crées. La commande subtasks montre bien la sous-tâche de la tâche 0 et qu'il n'y a pas de 
+sous-tâche de la tâche 1. On va ensuite tester la fermeture de tâche en fermant la tâche 0.
+
+>close --id 0
+>tasks
+Tasks :
+0 : tacheUn  :  closed
+1 : tacheDeux  :  open
+>subtasks --id 0
+SubTasks :
+0 : ssTacheUn  :  closed
+
+On observe que la tâche 0 a bien été fermée et sa sous-tâche aussi, la clotûre marche donc bien. 
+
+>info --id 1
+tacheDeux : deux
+status : open
+cree le : Tue Mar 31 22:43:44 2020
+
+priorite : high
+commentaires :
+
+La commande info fonctionne donc bien et montre les bons arguments.
+
+>comment --id 1 --comment mon commentaire
+>info --id 1
+tacheDeux : deux
+status : open
+cree le : Tue Mar 31 22:43:44 2020
+
+priorite : high
+commentaires :
+mon commentaire
+
+la commande info nous montre que la commande comment a bien ajouté un commentaire
+
+On teste ensuite le système de sauvegarde :
+
+
+>quit
+
+(base) C:\Users\Jonathan\Workspace\ProjetCpp>projcpp.exe
+>tasks
+Tasks :
+0 : tacheUn  :  closed
+1 : tacheDeux  :  open
+>info --id 0
+tacheUn : un
+status : closed
+cree le : Tue Mar 31 22:43:36 2020
+clos le : Tue Mar 31 22:44:19 2020
+priorite : normal
+commentaires :
+>subtasks --id 0
+SubTasks :
+0 : ssTacheUn  :  closed
+
+les commandes tasks, info et subtasks montre qu'on a bien sauvegardé les tâches, leurs attributs et leurs sous-tâches et attributs des sous-tâches
